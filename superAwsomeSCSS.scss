@@ -46,6 +46,16 @@
 	Lets go with those classes !! PD: feel free to change the colors to the ones of your liking.
 */
 
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/* 
+When you set box-sizing: border-box; on an element, the padding and border of that element no longer increase its width. */
+
+
 .align-center-container{
 	text-align: center;
 	.aligned-to-center-div{
