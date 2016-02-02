@@ -56,6 +56,20 @@
 when you use display: inline-block in a div, this one is gonna take the width of the content, 
 so the container is gonna see this one like a text element. */
 
+.align-center-with-margin {
+	width: 500px;
+	margin: 0 auto;
+	-webkit-box-sizing: border-box;
+	 -moz-box-sizing: border-box;
+	      box-sizing: border-box;
+	display: block; //if the element is a block one, like a div, you dont need to put this one;
+
+}
+/* 
+in this case we use margin 0 auto to center the element, we need to define a width (you can use %), and the display has to be block,
+it does the following math: (the width of the father element - the width of the element in question) / 2 
+and the result is the number of pixels of the margin for each side of the element*/
+
 .vertical-aligned-brothers{
 	display: inline-block;
 	width: 49% //according to the number of brothers you have, in this case 2.
