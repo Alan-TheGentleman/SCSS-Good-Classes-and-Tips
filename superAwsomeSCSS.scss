@@ -93,6 +93,98 @@ what this is gonna do is to vertical align to middle all our divs acoording the 
 
 */
 
+//colors
+$color_medium_purple_approx: #9479fa;
+$black_40: rgba(0,0,0,0.4);
+
+.drop-shadow {
+	background: $color_medium_purple_approx;
+	&.top {
+		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		box-shadow: 0 -4px 2px -2px $black_40;
+	}
+	&.right {
+		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		box-shadow: 4px 0 2px -2px $black_40;
+	}
+	&.bottom {
+		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		box-shadow: 0 4px 2px -2px $black_40;
+	}
+	&.left {
+		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		box-shadow: -4px 0 2px -2px $black_40;
+	}
+}
+
+/*
+	Great class for putting shadow to boxes.
+*/
+
+//colors
+$color_turquoise_blue_approx: #69d2e7;
+$black_35: rgba(0,0,0,.35);
+$white_25: rgba(255,255,255,.25);
+$white_50: rgba(255,255,255,.5);
+
+div[class*="emphasize-"] {
+	background: $color_turquoise_blue_approx;
+}
+.emphasize {
+	&.dark {
+		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		box-shadow: 0 0 5px 2px $black_35;
+	}
+	&.light {
+		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		box-shadow: 0 0 0 10px $white_25;
+	}
+	&.inset {
+		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		box-shadow: inset 0 0 7px 4px $white_50;
+	}
+	&.border {
+		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		box-shadow: inset 0 0 0 7px $white_50;
+	}
+}
+/*
+	Another great one for emphatizing the content of boxes with a shadow, light, blurred or not.
+*/
+
+//colors
+$color_atlantis_approx: #8ec12d;
+$color_mine_shaft_approx: #333;
+$white_90: rgba(255,255,255,0.9);
+$black_5: rgba(0,0,0,0.05);
+$white_70: rgba(255,255,255,0.7);
+$white_30: rgba(255,255,255,0.3);
+$black_30: rgba(0,0,0,0.3);
+
+div[class*="embossed"] {
+	background: $color_atlantis_approx;
+	color: $color_mine_shaft_approx;
+	//Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	text-shadow: 0 1px 1px $white_90;
+}
+.embossed {
+	&.light {
+		border: 1px solid $black_5;
+		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		box-shadow: inset 0 1px 0 $white_70;
+	}
+	&.heavy {
+		border: 1px solid $black_5;
+		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		box-shadow: inset 0 2px 3px $white_30, inset 0 -2px 3px $black_30, 0 1px 1px $white_90;
+	}
+}
+
+/*
+	
+	This one gives the box an embosed effect, giving with light a small reflection to the top of the box, and heavy an all around 3d effect.
+
+ */
 
 /*
 
