@@ -214,6 +214,97 @@ div[class*="gradient"] {
 
  */
 
+//colors
+$color_carnation_pink_approx: #fca1cc;
+
+div[class*="rounded"] {
+	background: $color_carnation_pink_approx;
+}
+.rounded {
+	&.light {
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+		border-radius: 3px;
+	}
+	&.heavy {
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+		border-radius: 8px;
+	}
+	&.full {
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+		border-radius: 50%;
+	}
+	&.barrel {
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+		border-radius: 20px/60px;
+	}
+}
+
+/*
+	
+	This one gives the box a rounded borders.
+	At 0px, you have sharp angles.
+
+	Between 1 and 4px, you have subtle rounded corners. 
+	Most people won’t be able to tell corners are rounded, but they won’t have the “sharp knife” impression.
+
+	Between 5 and 10px, you have rounded corners.
+
+	After 10px, in my opinion is too much, normally if you go pass 40px you are making a circle !.
+
+ */
+
+ //colors
+$color_mine_shaft_approx: #333;
+$black_20: rgba(0,0,0,.2);
+$black_10: rgba(0,0,0,0.1);
+$color_viking_approx: #51cbee;
+
+.mac {
+	display: block;
+	border: none;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 20px;
+	padding: 5px 8px;
+	color: $color_mine_shaft_approx;
+	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	box-shadow: inset 0 2px 0 $black_20, 0 0 4px $black_10;
+	&:focus {
+		outline: none;
+		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		box-shadow: inset 0 2px 0 $black_20, 0 0 4px $black_10, 0 0 5px 1px $color_viking_approx;
+	}
+}
+
+/*
+	
+	Mac like inputs !!
+
+ */
+
+//colors
+$color_mine_shaft_approx: #333;
+$black:  black;
+$color_viking_approx: #51cbee;
+
+.line {
+	display: block;
+	border: none;
+	color: $color_mine_shaft_approx;
+	background: transparent;
+	border-bottom: 1px dotted $black;
+	padding: 5px 2px 0;
+	&:focus {
+		outline: none;
+		border-color: $color_viking_approx;
+	}
+}
+
+/*
+	
+	Modern art inputs.
+
+ */
+
 /*
 
 	Ok ! lest start with tricks and tips, first lets talk about structure, you might be thinking whats so important about it right ? 
