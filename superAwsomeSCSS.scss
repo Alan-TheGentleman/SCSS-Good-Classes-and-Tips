@@ -1,0 +1,242 @@
+/* SCSS-Good-Classes-and-Tips
+	  _                       __         _____          _       ____  _____  
+     / \                     [  |       |_   _|        / \     |_   \|_   _| 
+    / _ \    _ .--.   _ .--.  | | .---.   | |         / _ \      |   \ | |   
+   / ___ \  [ '/'`\ \[ '/'`\ \| |/ /__\\  | |   _    / ___ \     | |\ \| |   
+ _/ /   \ \_ | \__/ | | \__/ || || \__., _| |__/ | _/ /   \ \_  _| |_\   |_  
+|____| |____|| ;.__/  | ;.__/[___]'.__.'|________||____| |____||_____|\____| 
+            [__|     [__|                                                     */
+
+/* Ok lets start !! 
+	
+	firts lets go with some concepts:
+
+	-display: block : the element is going to take the full width available from left to right, and starts in a new line.
+
+		1- they respect left ,right, top and bottom margins and padding.
+		2- force a line break after the block element.
+
+	-display : inline the element is going to take only the width it needs according its content, it doesnt start from a new line.
+
+		1- they respect left & right margins and padding, but not top & bottom.
+		2- they cannot have a width and height set.
+		3- they allow other elements to sit to their left and right.
+
+	-display: inline-block : a combination of block and inline elements properties.
+
+		1- they allow other elements to sit to their left and right.
+		2- they respect top & bottom margins and padding.
+		3- they respect height and width.
+
+	-vertical-align : sets the vertical alignment of an element, this one has to be inline or table-cell.
+	now the classes, each one is gonna be having an explanation:
+
+	& selector, when you use it you are gonna be doing reference to the class in wich is being use, for example:
+
+		.some-amazing-div{
+		
+			&:hover{
+				
+			}
+
+		}
+	In this case the "&" is doing reference to .some-amazing-div, so when this class is on hover,
+	the rules we wrote there are going to be applied.
+*/
+
+.align-center-container{
+	text-align: center;
+	.aligned-to-center-div{
+		display: inline-block;
+	}
+}
+/* 
+when you use display: inline-block in a div, this one is gonna take the width of the content, 
+so the container is gonna see this one like a text element. */
+
+.vertical-aligned-brothers{
+	display: inline-block;
+	width: 49% //according to the number of brothers you have, in this case 2.
+	vertical-align : middle;
+	float: none; //in case you need to use it at boostrap col elements.
+}
+
+/* in this case we use display: inline-block so we can give the elements the inline property, 
+in this case two blocks are gonna be inline next to each other, 
+another cool thing i like using in this kind of cases is the vertical-align property,
+what this is gonna do is to vertical align to middle all our divs acoording the one with the most height.   */
+
+@mixin responsive($point) {
+  @if $point == large {
+    @media (max-width: 1200px) { @content; }
+  }
+  @else if $point == medium {
+    @media (max-width: 991px) { @content; }
+  }
+  @else if $point == small {
+    @media (max-width: 767px)  { @content; }
+  }
+}
+
+/* an amazing mixin for responsive rules, the correct way to use it is this one 
+
+	.some-amazing-div{
+		
+		@include responsive (small){
+			your rules..
+		}
+
+	}
+
+	this takes all the rules applying to a class, right inside it, 
+	so you dont have to scroll to the media query you always use and search for the class to compare rules.
+
+*/
+
+
+/*
+
+	Ok ! lest start with tricks and tips, first lets talk about structure, you might be thinking whats so important about it right ? 
+	you can just throw your code in any way or order and its going yo work!, but is much easier for other people to read what you did
+	and have a better understanding of it.
+
+	first, use the same rules as css: 
+
+		-Be consistant with indentation.
+		-One selector per line, One rule per line.
+		-List related properties together.
+		-Think about the names you are gonna be using and stick to them.
+		-Limit the use of ID, and important!.
+	
+	Great! now that we took that from the way lets continue with the structure we are gonna be using:
+
+	-List Vendor/Global Dependencies First, Then Author Dependencies, Then Patterns, Then Parts:
+		Vendor Dependencies 
+
+		@import "coolDependency";
+
+		Authored Dependencies 
+
+		@import "global/coolColors";
+		@import "global/coolMixins";
+
+		Patterns 
+
+		@import "global/sickModals";
+
+		Sections 
+
+		@import "global/header";
+		@import "global/body";
+
+
+	-Try to break into as many small files as possible
+		@import "global/header";
+		@import "global/header/sickNav";
+		@import "global/header/sickSubNav";
+		@import "global/header/sickLogo";
+		@import "global/body";
+		@import "global/footer";
+
+	-Name the patial files with '_' before the name for example
+
+		_custom.scss
+
+	The partial files are those who are not compiled by itself, they are imported generally by the main.scss
+
+	-Make Variables for heach number, color, etc you are going to continuously be using
+
+		$pink: #ed008c;
+	
+	-If you are testing Or fixing stuff, import a _shame.scss at the end of the scss you are gonna be using it.
+	
+	-@extend(s) First:
+
+		.some-amazing-div{
+		
+			@extend %JorgeBoyModule;
+			...
+
+		}
+	Knowing first of all from where the class inherits their rules is gonna be help full, also is easier to override them this way.
+	
+	-@include(s) Next
+		
+		.some-amazing-div{
+		
+			@extend %JorgeBoyModule;
+			@include responsive (small){
+				your code..
+			}
+
+		}
+	The same as the last one, with the same upgrades.
+	
+	-Normal Styles Next
+		
+		.some-amazing-div{
+		
+			@extend %JorgeBoyModule;
+			@include responsive (small){
+				your code..
+			}
+			font-size : 40px
+			other rules...
+
+		}
+
+	-Nested Pseudo Classes and Pseudo Elements Next
+
+		.some-amazing-div{
+		
+			@extend %JorgeBoyModule;
+			@include responsive (small){
+				your code..
+			}
+
+			font-size : 40px
+			other rules...
+			
+			&:hover{
+				
+			}
+
+		}
+
+	-Nested Selectors Last
+
+		.some-amazing-div{
+		
+			@extend %JorgeBoyModule;
+			@include responsive (small){
+				your code..
+			}
+			font-size : 40px
+			other rules...
+
+			&:hover{
+				
+			}
+
+			.some-amazing-div-child{
+				his rules ..
+			}
+
+
+		}
+	Now with this stucture we have: first of all, from where it inherits its rules,
+	after that one, all the mixins we are gonna be using, next the normal rules as always, 
+	the nested pseudo classes and pseudo elements and the child/s of the class for the last.
+
+	Ok! now some cool tips shall we ?
+
+	-I recommed using a limit of nested elements, three should be enough, 
+	more than that is gonna put higger hopes that it ends in a bad selector,
+	because you are being reliant of the html, specifying too much (so is going to be too powerfull) and more than everything,
+	not reusable.
+
+	-COMPILE WITH SOURCE MAPS!!!, if you do this, the browser is going to show the scss file instead of the css when you inspect your element,
+	SUPER USEFULL!!, $ sass sass/main.scss:stylesheets/main.css --sourcemap, cool link for this: http://thesassway.com/intermediate/using-source-maps-with-sass
+	
+*/
+
