@@ -42,6 +42,8 @@
 		}
 	In this case the "&" is doing reference to .some-amazing-div, so when this class is on hover,
 	the rules we wrote there are going to be applied.
+
+	Lets go with those classes !!
 */
 
 .align-center-container{
@@ -183,6 +185,32 @@ div[class*="embossed"] {
 /*
 	
 	This one gives the box an embosed effect, giving with light a small reflection to the top of the box, and heavy an all around 3d effect.
+
+ */
+
+ //colors
+$color_cameo_approx: #deb8a0;
+$color_toast_approx: #a27b62;
+$white_50: rgba(255,255,255,.5);
+$black_25: rgba(0,0,0,.25);
+
+div[class*="gradient"] {
+	background-color: $color_cameo_approx;
+	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	box-shadow: 0 0 0 1px $color_toast_approx;
+}
+.gradient {
+	&.light-linear {
+		background-image: linear-gradient($white_50, rgba(255,255,255,0));
+	}
+	&.dark-linear {
+		background-image: linear-gradient($black_25, rgba(0,0,0,0));
+	}
+}
+
+/*
+	
+	This one gives the box a gradient effect.
 
  */
 
