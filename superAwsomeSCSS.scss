@@ -55,6 +55,54 @@
 /* 
 When you set box-sizing: border-box; on an element, the padding and border of that element no longer increase its width. */
 
+.relative{
+	position: relative;
+}
+.absolute{
+	position: absolute;
+}
+
+/* N1 */
+@mixin vertical-align($position: relative) {
+  position: $position;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.parent-element {
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	.vertical-aligned-easy {
+		@include vertical-align();
+	}
+}
+/* N2 */
+.vertical-aligned-absolute-parent{
+	position: relative;
+	.vertical-aligned-absolute{
+		position: absolute;
+		left: 50%; //took this one off if you want to only center it vertically
+		transform: translate(-50%,0);
+	}
+}
+
+/* 
+fast clases to positioning of elements, and some clases that use them, N1: to vertically align anything, 
+N2 center any absolute positioned element */
+
+.clearfix {
+  overflow: auto;
+}
+.after-box {
+  clear: left;
+}
+
+/* 
+use it to mantain height of elements that float, and after-box for a div that is after the ones floating 
+but you want it to behave like normal*/
 
 .align-center-container{
 	text-align: center;
