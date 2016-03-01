@@ -1,14 +1,14 @@
 /* SCSS-Good-Classes-and-Tips
-	  _                       __         _____          _       ____  _____  
-     / \                     [  |       |_   _|        / \     |_   \|_   _| 
-    / _ \    _ .--.   _ .--.  | | .---.   | |         / _ \      |   \ | |   
-   / ___ \  [ '/'`\ \[ '/'`\ \| |/ /__\\  | |   _    / ___ \     | |\ \| |   
- _/ /   \ \_ | \__/ | | \__/ || || \__., _| |__/ | _/ /   \ \_  _| |_\   |_  
-|____| |____|| ;.__/  | ;.__/[___]'.__.'|________||____| |____||_____|\____| 
+	  _                       __         _____          _       ____  _____
+     / \                     [  |       |_   _|        / \     |_   \|_   _|
+    / _ \    _ .--.   _ .--.  | | .---.   | |         / _ \      |   \ | |
+   / ___ \  [ '/'`\ \[ '/'`\ \| |/ /__\\  | |   _    / ___ \     | |\ \| |
+ _/ /   \ \_ | \__/ | | \__/ || || \__., _| |__/ | _/ /   \ \_  _| |_\   |_
+|____| |____|| ;.__/  | ;.__/[___]'.__.'|________||____| |____||_____|\____|
             [__|     [__|                                                     */
 
-/* Ok lets start !! 
-	
+/* Ok lets start !!
+
 	first lets go with some concepts:
 
 	-display: block : the element is going to take the full width available from left to right, and starts in a new line.
@@ -34,9 +34,9 @@
 	& selector, when you use it you are gonna be doing reference to the class in wich is being use, for example:
 
 		.some-amazing-div{
-		
+
 			&:hover{
-				
+
 			}
 
 		}
@@ -52,7 +52,7 @@
           box-sizing: border-box;
 }
 
-/* 
+/*
 When you set box-sizing: border-box; on an element, the padding and border of that element no longer increase its width. */
 
 .relative{
@@ -85,12 +85,12 @@ When you set box-sizing: border-box; on an element, the padding and border of th
 	.vertical-aligned-absolute{
 		position: absolute;
 		left: 50%; //took this one off if you want to only center it vertically
-		transform: translate(-50%,0);
+		transform: translate(-50%,-50%);
 	}
 }
 
-/* 
-fast clases to positioning of elements, and some clases that use them, N1: to vertically align anything, 
+/*
+fast clases to positioning of elements, and some clases that use them, N1: to vertically align anything,
 N2 center any absolute positioned element */
 
 .clearfix {
@@ -100,8 +100,8 @@ N2 center any absolute positioned element */
   clear: left;
 }
 
-/* 
-use it to mantain height of elements that float, and after-box for a div that is after the ones floating 
+/*
+use it to mantain height of elements that float, and after-box for a div that is after the ones floating
 but you want it to behave like normal*/
 
 .align-center-container{
@@ -110,8 +110,8 @@ but you want it to behave like normal*/
 		display: inline-block;
 	}
 }
-/* 
-when you use display: inline-block in a div, this one is gonna take the width of the content, 
+/*
+when you use display: inline-block in a div, this one is gonna take the width of the content,
 so the container is gonna see this one like a text element. */
 
 .align-center-with-margin {
@@ -123,9 +123,9 @@ so the container is gonna see this one like a text element. */
 	display: block; //if the element is a block one, like a div, you dont need to put this one;
 
 }
-/* 
+/*
 in this case we use margin 0 auto to center the element, we need to define a width (you can use %), and the display has to be block,
-it does the following math: (the width of the father element - the width of the element in question) / 2 
+it does the following math: (the width of the father element - the width of the element in question) / 2
 and the result is the number of pixels of the margin for each side of the element*/
 
 .vertical-aligned-brothers{
@@ -135,8 +135,8 @@ and the result is the number of pixels of the margin for each side of the elemen
 	float: none; //in case you need to use it at boostrap col elements.
 }
 
-/* in this case we use display: inline-block so we can give the elements the inline property, 
-in this case two blocks are gonna be inline next to each other, 
+/* in this case we use display: inline-block so we can give the elements the inline property,
+in this case two blocks are gonna be inline next to each other,
 another cool thing i like using in this kind of cases is the vertical-align property,
 what this is gonna do is to vertical align to middle all our divs acoording the one with the most height.   */
 
@@ -152,17 +152,17 @@ what this is gonna do is to vertical align to middle all our divs acoording the 
   }
 }
 
-/* an amazing mixin for responsive rules, the correct way to use it is this one 
+/* an amazing mixin for responsive rules, the correct way to use it is this one
 
 	.some-amazing-div{
-		
+
 		@include responsive (small){
 			your rules..
 		}
 
 	}
 
-	this takes all the rules applying to a class, right inside it, 
+	this takes all the rules applying to a class, right inside it,
 	so you dont have to scroll to the media query you always use and search for the class to compare rules.
 
 */
@@ -255,7 +255,7 @@ div[class*="embossed"] {
 }
 
 /*
-	
+
 	This one gives the box an embosed effect, giving with light a small reflection to the top of the box, and heavy an all around 3d effect.
 
  */
@@ -281,7 +281,7 @@ div[class*="gradient"] {
 }
 
 /*
-	
+
 	This one gives the box a gradient effect.
 
  */
@@ -312,11 +312,11 @@ div[class*="rounded"] {
 }
 
 /*
-	
+
 	This one gives the box a rounded borders.
 	At 0px, you have sharp angles.
 
-	Between 1 and 4px, you have subtle rounded corners. 
+	Between 1 and 4px, you have subtle rounded corners.
 	Most people won’t be able to tell corners are rounded, but they won’t have the “sharp knife” impression.
 
 	Between 5 and 10px, you have rounded corners.
@@ -348,7 +348,7 @@ $color_viking_approx: #51cbee;
 }
 
 /*
-	
+
 	Mac like inputs !!
 
  */
@@ -372,42 +372,42 @@ $color_viking_approx: #51cbee;
 }
 
 /*
-	
+
 	Modern art inputs.
 
  */
 
 /*
 
-	Ok ! lest start with tricks and tips, first lets talk about structure, you might be thinking whats so important about it right ? 
+	Ok ! lest start with tricks and tips, first lets talk about structure, you might be thinking whats so important about it right ?
 	you can just throw your code in any way or order and its going yo work!, but is much easier for other people to read what you did
 	and have a better understanding of it.
 
-	first, use the same rules as css: 
+	first, use the same rules as css:
 
 		-Be consistant with indentation.
 		-One selector per line, One rule per line.
 		-List related properties together.
 		-Think about the names you are gonna be using and stick to them.
 		-Limit the use of ID, and important!.
-	
+
 	Great! now that we took that from the way lets continue with the structure we are gonna be using:
 
 	-List Vendor/Global Dependencies First, Then Author Dependencies, Then Patterns, Then Parts:
-		Vendor Dependencies 
+		Vendor Dependencies
 
 		@import "coolDependency";
 
-		Authored Dependencies 
+		Authored Dependencies
 
 		@import "global/coolColors";
 		@import "global/coolMixins";
 
-		Patterns 
+		Patterns
 
 		@import "global/sickModals";
 
-		Sections 
+		Sections
 
 		@import "global/header";
 		@import "global/body";
@@ -430,23 +430,23 @@ $color_viking_approx: #51cbee;
 	-Make Variables for heach number, color, etc you are going to continuously be using
 
 		$pink: #ed008c;
-	
+
 	-If you are testing Or fixing stuff, import a _shame.scss at the end of the scss you are gonna be using it.
-	
+
 	-@extend(s) First:
 
 		.some-amazing-div{
-		
+
 			@extend %JorgeBoyModule;
 			...
 
 		}
 	Knowing first of all from where the class inherits their rules is gonna be helpful, also is easier to override them this way.
-	
+
 	-@include(s) Next
-		
+
 		.some-amazing-div{
-		
+
 			@extend %JorgeBoyModule;
 			@include responsive (small){
 				your code..
@@ -454,11 +454,11 @@ $color_viking_approx: #51cbee;
 
 		}
 	The same as the last one, with the same upgrades.
-	
+
 	-Normal Styles Next
-		
+
 		.some-amazing-div{
-		
+
 			@extend %JorgeBoyModule;
 			@include responsive (small){
 				your code..
@@ -471,7 +471,7 @@ $color_viking_approx: #51cbee;
 	-Nested Pseudo Classes and Pseudo Elements Next
 
 		.some-amazing-div{
-		
+
 			@extend %JorgeBoyModule;
 			@include responsive (small){
 				your code..
@@ -479,9 +479,9 @@ $color_viking_approx: #51cbee;
 
 			font-size : 40px
 			other rules...
-			
+
 			&:hover{
-				
+
 			}
 
 		}
@@ -489,7 +489,7 @@ $color_viking_approx: #51cbee;
 	-Nested Selectors Last
 
 		.some-amazing-div{
-		
+
 			@extend %JorgeBoyModule;
 			@include responsive (small){
 				your code..
@@ -498,7 +498,7 @@ $color_viking_approx: #51cbee;
 			other rules...
 
 			&:hover{
-				
+
 			}
 
 			.some-amazing-div-child{
@@ -508,18 +508,17 @@ $color_viking_approx: #51cbee;
 
 		}
 	Now with this stucture we have: first of all, from where it inherits its rules,
-	after that one, all the mixins we are gonna be using, next the normal rules as always, 
+	after that one, all the mixins we are gonna be using, next the normal rules as always,
 	the nested pseudo classes and pseudo elements and the child/s of the class for the last.
 
 	Ok! now some cool tips shall we ?
 
-	-I recommed using a limit of nested elements, three should be enough, 
+	-I recommed using a limit of nested elements, three should be enough,
 	more than that is gonna put higger hopes that it ends in a bad selector,
 	because you are being reliant of the html, specifying too much (so is going to be too powerfull) and more than everything,
 	not reusable.
 
 	-COMPILE WITH SOURCE MAPS!!!, if you do this, the browser is going to show the scss file instead of the css when you inspect your element,
 	SUPER USEFULL!!, $ sass sass/main.scss:stylesheets/main.css --sourcemap, cool link for this: http://thesassway.com/intermediate/using-source-maps-with-sass
-	
-*/
 
+*/
